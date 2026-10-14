@@ -1,0 +1,3 @@
+# Si compilas con Gradle directo (sin el comando `compilar` de Panda),
+# descomenta y ajusta la ruta del Android SDK en Termux:
+# sdk.dir=/data/data/com.termux/files/home/android-sdk
