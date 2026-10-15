@@ -28,6 +28,10 @@ jobs:
           yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-36" "build-tools;36.0.0" 2>&1 | tail -2
 
       - name: Compilar APK debug
+        # v3.18.3: D8 se quedaba sin heap al mezclar los dex (Compose + Media3
+        # Transformer + Chaquopy). Con --no-daemon todo corre en esta JVM.
+        env:
+          GRADLE_OPTS: "-Xmx6g -Dfile.encoding=UTF-8"
         run: gradle assembleDebug --no-daemon --continue
 
       - name: Subir APK
