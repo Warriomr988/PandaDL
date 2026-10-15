@@ -166,7 +166,8 @@ object Muxer {
                             transformerRef.get()?.cancel()
                             throw FriendlyException("Media3 Transformer tardó demasiado.")
                         }
-                        val p = transformerRef.get()?.getProgress(holder) ?: 0
+                        val state = transformerRef.get()?.getProgress(holder) ?: Transformer.PROGRESS_STATE_UNAVAILABLE
+                        val p = if (state == Transformer.PROGRESS_STATE_AVAILABLE) holder.progress else 0
                         onProgress(0.05f + 0.9f * (p.coerceIn(0, 100) / 100f))
                     }
                     errorRef.get()?.let { throw it }

@@ -16,8 +16,8 @@ android {
         // v3.4.3: minSdk 24 (mínimo exigido por Chaquopy 16.x).
         minSdk = 24
         targetSdk = 34
-        versionCode = 73
-        versionName = "3.18"
+        versionCode = 75
+        versionName = "3.18.2"
         // v3.4.3: Chaquopy exige abiFilters (el intérprete es nativo).
         ndk {
             abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86_64")
